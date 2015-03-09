@@ -4,20 +4,10 @@ from sys import argv
 def main(input_file):
 	with open(input_file, 'r') as f:
 		cases = f.readlines()
-	# n = input()
-	xml = ''
-	# for __ in xrange(n):
-	# 	xml += raw_input()
-	# 	print xml
-	# print "xml is:\n", xml
-	
+	xml = ''	
 	for line in cases[1:]:
-		xml += line
-
-	print xml	 
-	
+		xml += line	
 	tree = etree.ElementTree(etree.fromstring(xml))
-	print tree
 	score = 0
 	for child in tree.iter():
 		score += len(child.items())
