@@ -65,21 +65,27 @@ def Delete(head, position):
 
 
 def print_list(head):
-	print "List:"
 	while head != None:
 		print head.data, "=>",
 		head = head.next
 	print "None\n"
 
+def ReversePrint(head):
+	if head == None:
+		return
+	ReversePrint(head.next)
+	print head.data
+
 if __name__ == "__main__":
 	node = None
 	for i in xrange(10):
-		val = input("Enter Value: ")
+		# val = input("Enter Value: ")
 		pos = random.randint(0, i)
-		node = InsertNth(node, val, pos)
+		node = InsertNth(node, i, pos)
 	print_list(node)
-	delPos = input("Enter position to delete node:")
-	while delPos != -1:
-		node = Delete(node, delPos)
-		print_list(node)
-		delPos = input("Enter position to delete node:")
+	ReversePrint(node)
+	# delPos = input("Enter position to delete node:")
+	# while delPos != -1:
+	# 	node = Delete(node, delPos)
+	# 	print_list(node)
+	# 	delPos = input("Enter position to delete node:")
