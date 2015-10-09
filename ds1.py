@@ -38,8 +38,7 @@ def InsertNth(head, data, position):
 		return node
 	else:
 		temp = head
-		for x in xrange(1, position):
-			print "x>>>>", x
+		for __ in xrange(1, position):
 			if temp.next == None:
 				temp.next = node
 				return head
@@ -49,6 +48,21 @@ def InsertNth(head, data, position):
 		temp.next = node
 		node.next = temp2
 		return head
+
+def Delete(head, position):
+	if head == None:
+		return head
+	elif position == 0:
+		node = head.next
+		head = node
+		return head
+	else:
+		temp = head
+		for __ in xrange(1, position):
+			temp = temp.next
+		temp.next = temp.next.next
+		return head
+
 
 def print_list(head):
 	print "List:"
@@ -63,5 +77,9 @@ if __name__ == "__main__":
 		val = input("Enter Value: ")
 		pos = random.randint(0, i)
 		node = InsertNth(node, val, pos)
-		print "Inserted at position: ", pos
+	print_list(node)
+	delPos = input("Enter position to delete node:")
+	while delPos != -1:
+		node = Delete(node, delPos)
 		print_list(node)
+		delPos = input("Enter position to delete node:")
