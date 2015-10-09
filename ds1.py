@@ -34,5 +34,5 @@ if __name__ == "__main__":
 	node = Node()
 	for i in xrange(10):
 		val = input("Enter Value: ")
-		Insert_At_Head(node, val)
-	print_list(node)
+		node = Insert_At_Head(node, val)
+		print_list(node)
