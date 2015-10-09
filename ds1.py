@@ -95,6 +95,18 @@ def CompareLists(headA, headB):
 	if headA is not None or headB is not None:
 		return 0
 	return 1
+
+def MergeLists(headA, headB):
+	if headA is None:
+		return headB
+	if headB is None:
+		return headA
+	if headA.data < headB.data:
+		headA.next = MergeLists(headA.next, headB)
+		return headA
+	else:
+		headB.next = MergeLists(headB.next, headA)
+		return headB
  
 if __name__ == "__main__":
 	node = None
