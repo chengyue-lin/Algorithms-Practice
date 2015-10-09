@@ -84,8 +84,17 @@ def Reverse(head):
 		curr_node.next = prev_node
 		prev_node = curr_node
 		curr_node = next_node
-
 	return prev_node
+
+def CompareLists(headA, headB):
+	while headA is not None and headB is not None:
+		if headA.data != headB.data:
+			return 0
+		headA = headA.next
+		headB = headB.next
+	if headA is not None or headB is not None:
+		return 0
+	return 1
  
 if __name__ == "__main__":
 	node = None
