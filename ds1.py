@@ -16,6 +16,15 @@ def Insert(head, data):
     	temp.next = node
     return head
 
+def Insert_At_Head(head, data):
+	node = Node()
+	node.data = data
+	node.next = None
+	if head is not None:
+		node.next = head
+	head = node
+	return head
+
 def print_list(head):
     while head != None:
         print head.data
@@ -25,5 +34,5 @@ if __name__ == "__main__":
 	node = Node()
 	for i in xrange(10):
 		val = input("Enter Value: ")
-		Insert(node, val)
+		Insert_At_Head(node, val)
 	print_list(node)
