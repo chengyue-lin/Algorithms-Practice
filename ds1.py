@@ -107,13 +107,27 @@ def MergeLists(headA, headB):
 	else:
 		headB.next = MergeLists(headB.next, headA)
 		return headB
+
+def GetNode(head, position):
+	count = 0
+	temp = head
+	while temp.next is not None:
+		temp = temp.next
+		count += 1
+	temp = head
+	for __ in xrange(int(count - position)):
+		temp = temp.next
+	return temp.data
  
-if __name__ == "__main__":
-	node = None
+def FillVals(node):
 	for i in xrange(10):
-		# val = input("Enter Value: ")
 		pos = random.randint(0, i)
 		node = InsertNth(node, i, pos)
+	return node
+
+if __name__ == "__main__":
+	node = None
+	node = FillVals(node)
 	print_list(node)
 	# ReversePrint(node)
 	print_list(Reverse(node))
