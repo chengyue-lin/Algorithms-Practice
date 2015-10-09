@@ -10,7 +10,10 @@ def Insert(head, data):
     if head == None:
         head = node
     else:
-        head.next = node
+    	temp = head
+    	while temp.next != None:
+        	temp = temp.next
+    	temp.next = node
     return head
 
 def print_list(head):
@@ -19,7 +22,8 @@ def print_list(head):
         head = head.next
 
 if __name__ == "__main__":
-	val = input("Enter Value: ")
 	node = Node()
-	Insert(node, val)
+	for i in xrange(10):
+		val = input("Enter Value: ")
+		Insert(node, val)
 	print_list(node)
