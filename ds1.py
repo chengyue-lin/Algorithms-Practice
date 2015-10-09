@@ -76,6 +76,17 @@ def ReversePrint(head):
 	ReversePrint(head.next)
 	print head.data
 
+def Reverse(head):
+	curr_node = head
+	prev_node = None
+	while curr_node is not None:
+		next_node = curr_node.next
+		curr_node.next = prev_node
+		prev_node = curr_node
+		curr_node = next_node
+
+	return prev_node
+ 
 if __name__ == "__main__":
 	node = None
 	for i in xrange(10):
@@ -83,7 +94,8 @@ if __name__ == "__main__":
 		pos = random.randint(0, i)
 		node = InsertNth(node, i, pos)
 	print_list(node)
-	ReversePrint(node)
+	# ReversePrint(node)
+	print_list(Reverse(node))
 	# delPos = input("Enter position to delete node:")
 	# while delPos != -1:
 	# 	node = Delete(node, delPos)
