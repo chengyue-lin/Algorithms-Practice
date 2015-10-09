@@ -1,3 +1,5 @@
+import random
+
 class Node(object):
 	def __init__(self, data=None, next_node=None):
 		self.data = data
@@ -25,14 +27,41 @@ def Insert_At_Head(head, data):
 	head = node
 	return head
 
+def InsertNth(head, data, position):
+	node = Node()
+	node.next = None
+	node.data = data
+	if head == None:
+		return node
+	elif position == 0:
+		node.next = head
+		return node
+	else:
+		temp = head
+		for x in xrange(1, position):
+			print "x>>>>", x
+			if temp.next == None:
+				temp.next = node
+				return head
+			temp = temp.next
+
+		temp2 = temp.next
+		temp.next = node
+		node.next = temp2
+		return head
+
 def print_list(head):
-    while head != None:
-        print head.data
-        head = head.next
+	print "List:"
+	while head != None:
+		print head.data, "=>",
+		head = head.next
+	print "None\n"
 
 if __name__ == "__main__":
-	node = Node()
+	node = None
 	for i in xrange(10):
 		val = input("Enter Value: ")
-		node = Insert_At_Head(node, val)
+		pos = random.randint(0, i)
+		node = InsertNth(node, val, pos)
+		print "Inserted at position: ", pos
 		print_list(node)
