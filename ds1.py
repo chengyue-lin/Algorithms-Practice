@@ -118,11 +118,21 @@ def GetNode(head, position):
 	for __ in xrange(int(count - position)):
 		temp = temp.next
 	return temp.data
+
+def RemoveDuplicates(head):
+	node = head
+	while node.next is not None:
+		if node.data == node.next.data:
+			node.next = node.next.next
+		else:
+			node = node.next
+	return head
  
 def FillVals(node):
 	for i in xrange(10):
-		pos = random.randint(0, i)
-		node = InsertNth(node, i, pos)
+		pos = random.randint(0, 3)
+		for __ in xrange(pos):
+			node = Insert(node, i)
 	return node
 
 if __name__ == "__main__":
