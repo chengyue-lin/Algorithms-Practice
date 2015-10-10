@@ -135,6 +135,25 @@ def FillVals(node):
 			node = Insert(node, i)
 	return node
 
+# Brent's Cycle Detection
+# http://www.siafoo.net/algorithm/11
+def HasCycle(head):
+	rabbit = head
+	turtle = head
+	count = 0
+	step_limit = 2
+	while rabbit is not None:
+		rabbit = rabbit.next
+		count += 1
+		if rabbit == turtle:
+			return 1
+		if count == step_limit:
+			count = 0
+			steplimit *= 2
+			turtle = rabbit
+	return 0
+
+
 if __name__ == "__main__":
 	node = None
 	node = FillVals(node)
