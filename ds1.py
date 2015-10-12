@@ -153,6 +153,18 @@ def HasCycle(head):
 			turtle = rabbit
 	return 0
 
+# I know this sucks. Will improve
+# TODO Improve this
+def FindMergeNode(headA, headB):
+	iter1 = headA
+	while iter1 != None:
+		iter2 = headB
+		while iter2 != None:
+			if iter1 == iter2:
+				return iter1.data
+			iter2 = iter2.next
+		iter1 = iter1.next
+	return None
 
 if __name__ == "__main__":
 	node = None
