@@ -7,7 +7,7 @@ class Solution(object):
         :rtype: int
         """
         if len(nums) == 0:
-            retrun 0
+            return 0
         i = 0
         for j in xrange(len(nums)):
             if nums[j] != nums[i]:
