@@ -1,1 +1,3 @@
-# hackerrank_practice
+# Algorithms-Practice
+
+Practicing algorithms for fun and profit. :)
