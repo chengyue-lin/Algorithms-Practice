@@ -32,11 +32,10 @@ def max_sub(ar):
 
 def get_indices(ar):
     val = max_sub(ar)
-    return val
-    # if val[0] < 0:
-    #     return 0, 0
-    # else:
-    #     return val[1] + 1, val[2] + 1
+    if val[0] < 0:
+        return 0, 0
+    else:
+        return val[1] + 1, val[2] + 1
 
 if __name__ == "__main__":
     # ar = [-2, 11, -4, 13, -5, 2]
