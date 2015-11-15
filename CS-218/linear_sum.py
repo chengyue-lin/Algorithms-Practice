@@ -1,3 +1,17 @@
+"""
+Given an array A of n (possibly negative) integers, find two indices 1 ≤ i ≤ n and 1 ≤ j ≤ n
+such that the value of Pj
+k=i
+ak is maximized.
+Here some examples (the solution is underlined):
+• A = [−2, 11, −4, 13, −5, 2] which has answer 20,
+• A = [1, −3, 4, −2, −1, 6] which has answer 7,
+• A = [−1, 4, −3, 5, −2, −1, 2, 6, −21] which has answer 11.
+Write an O(n log n)-time divide and conquer1 algorithm for the problem described above. The
+algorithm should return i and j. If all elements of the array are negative, the algorithm should
+return i = j = 0.
+"""
+
 import sys
 
 def linear_sum(left, right):
