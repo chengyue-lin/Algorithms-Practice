@@ -4,5 +4,5 @@ prev_item = arr[0]
 print len(arr)
 for index, item in enumerate(arr):
     if item != prev_item:
-        print len(arr[index:])
+        print n - index
         prev_item = item
