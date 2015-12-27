@@ -16,4 +16,4 @@ for i in xrange(n):
 		elif res == new_res:
 			count += 1
 print res
-print count
+print countamp
