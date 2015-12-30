@@ -1,21 +1,18 @@
-from collections import Counter
-t = int(raw_input())
-for __ in xrange(t):
-	s = raw_input()
-	l = len(s)
-
-	count = 0
-	m = l
-	for i in xrange(1, l):
-		subs = []
-		for j in xrange(m):
-			subs.append(s[j:i+j])
-		m -= 1
-
-		for x in xrange(len(subs)):
-			for y in xrange(x + 1, len(subs)):
-				one = Counter(subs[x])
-				two = Counter(subs[y])
-				if len((one - two)) == 0:
-					count += 1
-	print count
+from collections import *
+for i in range(input()):
+    s = raw_input()
+    check = defaultdict(int)
+    l = len(s)
+    for i in range(l):
+        for j in range(i+1,l+1):
+            sub = list(s[i:j])
+            print sub
+            sub.sort()
+            sub = "".join(sub)
+            check[sub]+=1
+    sum = 0
+    print check
+    for i in check:
+        n = check[i]
+        sum += (n*(n-1))/2
+    print sum
