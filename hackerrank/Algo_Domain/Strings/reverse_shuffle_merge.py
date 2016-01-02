@@ -16,5 +16,4 @@ for i in xrange(len(s) - 1, -1, -1):
         counter[x] -= 1
         if counter[x] == 0:
             letters.pop(0)
-    else:
 print A
