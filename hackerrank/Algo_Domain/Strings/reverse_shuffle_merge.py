@@ -8,12 +8,12 @@ A = ''
 for i in xrange(len(s) - 1, -1, -1):
     x = s[i]
     c = s[i-1::-1].count(x)
-    print "\n"
-    print s[i-1::-1]
-    print x
-    print letters
-    print "c", c
-    print "counter[",x,"]", counter[x]
+    # print "\n"
+    # print s[i-1::-1]
+    # print x
+    # print letters
+    # print "c", c
+    # print "counter[",x,"]", counter[x]
     if c < counter[x]:
         A += x
         counter[x] -= 1
@@ -21,8 +21,8 @@ for i in xrange(len(s) - 1, -1, -1):
         if counter[x] > 0:
             A += x
             counter[x] -= 1
-        print "counter after modification", counter[x]
+        # print "counter after modification", counter[x]
     if counter[x] == 0 and x in letters:
         letters.remove(x)
-    print "A is", A
+    # print "A is", A
 print A
