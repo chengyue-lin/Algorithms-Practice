@@ -1,35 +1,26 @@
-import time
+# import time
+s1, s2 = raw_input(), raw_input()
+# t1 = time.time()
+n, m = len(s1), len(s2)
 
-s1, s2 = raw_input().strip(), raw_input().strip()
-t1 = time.time()
-l1, l2 = len(s1), len(s2)
-count = 0
+dp_prev = []
+dp_current = []
 
-start_1 = 0
-# start_2 = 0
-end_1 = l1 - 1
-end_2 = l2 - 1
-while start_1 < l1 and start_1 < l2 and s1[start_1] == s2[start_1]:
-    start_1 += 1
-    count+= 1
+for __ in xrange(n+1):
+    dp_current.append(0)
+    dp_prev.append(0)
 
-while end_1 > 0 and end_2 > 0 and s1[end_1] == s2[end_2]:
-    end_1 -= 1
-    end_2 -= 1
-    count += 1
-
-x = [[0 for __ in xrange(start_1, end_2 + 2)] for __ in xrange(start_1, end_2 + 2)]
-max_ = 0
-
-
-for i in xrange(end_1 - start_1 + 1):
-    for j in xrange(end_2 - start_1 + 1):
-        if s1[i] == s2[j]:
-            x[i + 1][j + 1] = x[i][j] + 1
+for i in xrange(n + 1):
+    for j in xrange(m + 1):
+        if i == 0 or j == 0:
+            dp_current[j] = 0
+        elif s1[i - 1] == s2[j - 1]:
+            dp_current[j] = dp_prev[j - 1] + 1
         else:
-            x[i + 1][j + 1] = max(x[i][j + 1], x[i + 1][j])
-        if max_ < x[i + 1][j + 1]:
-            max_ = x[i + 1][j + 1]
+            dp_current[j] = max(dp_current[j-1], dp_prev[j])
 
-print max_ + count 
-print time.time() - t1
+    for j in xrange(n):
+        dp_prev[j] = dp_current[j]
+
+print dp_current[-1]
+# print time.time() - t1
