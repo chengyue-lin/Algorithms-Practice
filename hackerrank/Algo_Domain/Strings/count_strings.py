@@ -1,11 +1,9 @@
 def do_stuff(s, n):
 	elem = []
-	print s, n
-	return
-	while len(s) or s[0] != ')':
+	while len(s):
 		a = s.pop(0)
-		if a != '(':
-			return
+		
+			
 
 def main():
 	t = int(raw_input())

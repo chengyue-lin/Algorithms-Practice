@@ -14,6 +14,6 @@ def insertionSort(ar):
     print ' '.join(map(str, ar))
     return ar
 
-m = input()
+__ = input()
 ar = [int(i) for i in raw_input().strip().split()]
 insertionSort(ar)
