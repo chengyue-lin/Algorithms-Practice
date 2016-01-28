@@ -17,7 +17,8 @@ def max_subarray(arr):
 			best_sum = current_sum
 			best_start_index = current_index
 			best_end_index = i
-	return arr[best_start_index: best_end_index + 1]
+	result = arr[best_start_index: best_end_index + 1]
+	return result if len(result) else [max(arr)]
 
 def main():
 	t = int(raw_input())
@@ -25,7 +26,8 @@ def main():
 		_ = int(raw_input())
 		arr = map(int, raw_input().split())
 		print sum(max_subarray(arr)),
-		print sum([x for x in arr if x > 0])
+		ar2 = [x for x in arr if x > 0]
+		print sum(ar2 if len(ar2) else [max(arr)])
 
 if __name__ == "__main__":
 	main()
