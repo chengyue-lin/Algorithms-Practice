@@ -1,6 +1,7 @@
+#!/usr/bin/py
 from collections import Counter
 def lonelyinteger(a):
-	count = Counter(a)
+    count = Counter(a)
     answer = min(count, key=count.get)
     return answer
 
