@@ -18,7 +18,7 @@
 # 	# 	i += 1
 # 	print rank
 # 	return s
-
+	
 rank = dict()
 
 def compare(l, r):
