@@ -1,29 +1,12 @@
 import math
 
-def isprime(n):
-    """Returns True if n is prime"""
-    if n == 1:
-    	return False
-    if n == 2:
-        return True
-    if n == 3:
-        return True
-    if n % 2 == 0:
-        return False
-    if n % 3 == 0:
-        return False
-
-    i = 5
-    w = 2
-
-    while i * i <= n:
-        if n % i == 0:
-            return False
-
-        i += w
-        w = 6 - w
-
-    return True
+def get_prime(n):
+	is_prime = [False] * 2 + [True] * (n - 1)
+	for x in xrange(int(math.ceil(math.sqrt(n)))):
+		if is_prime[x]:
+			for i in xrange(x*x, n + 1, x):
+				is_prime[i] = False
+	return [i for i, prime in enumerate(is_prime) if prime]
 
 def patterns(n):
 	ways = 1
@@ -33,10 +16,7 @@ def patterns(n):
 		n -= 4
 		ways += (math.factorial(n + v)/(math.factorial(n) * math.factorial(v)))
 	# print "ways", ways
-	count = 0
-	for x in xrange(ways + 1):
-		if isprime(x):
-			count += 1
+	count = len(get_prime(ways))
 	return count
 
 def main():
