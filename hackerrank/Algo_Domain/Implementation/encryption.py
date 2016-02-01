@@ -1,5 +1,4 @@
 import math
-from itertools import izip_longest
 s = raw_input().strip()
 l = len(s)
 # print "length", l
