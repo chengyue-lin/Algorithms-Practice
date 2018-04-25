@@ -1,3 +1,3 @@
 # Algorithms-Practice
 
-Practicing algorithms for fun and profit. :grin:
+Practicing algorithms for fun.
